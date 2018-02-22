@@ -36,13 +36,13 @@ module.exports = [
     filename : 'css/[name].css',
   },
   module: {
-    loaders: [
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        loader: extractTextPlugin.extract('css-loader'),
-      }
-    ],
+    rules: [{
+      test: /\.css$/,
+      use: ExtractTextPlugin.extract({
+        fallback: "style-loader",
+        use: "css-loader?minimize!postcss-loader"
+      })
+    }],
   },
 	plugins: [extractTextPlugin],
 	resolve: {

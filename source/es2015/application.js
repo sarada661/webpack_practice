@@ -1,15 +1,8 @@
-import Person from './person';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Game from './components/Game';
 
-class Friend extends Person {
-  constructor(name) {
-    super(name);
-  }
-  
-  callName() {
-    alert(this.name);
-  }
-}
-
-let friend = new Friend('Ryo');
-
-friend.callName();
+ReactDOM.render(
+  <Game />,
+  document.getElementById('root')
+);
